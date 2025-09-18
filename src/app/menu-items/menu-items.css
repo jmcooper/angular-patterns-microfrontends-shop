@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+a {
+  margin-right: 20px;
+}
