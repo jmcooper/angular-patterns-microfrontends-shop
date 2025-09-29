@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { CommonModule, NgComponentOutlet } from '@angular/common';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'bot-checkout',
@@ -9,7 +10,8 @@ import { CommonModule, NgComponentOutlet } from '@angular/common';
   styleUrl: './checkout.css'
 })
 export class Checkout implements OnInit {
-  addressSelector: any = null;
+  protected cartService = inject(CartService);
+  protected addressSelector: any = null;
 
   ngOnInit() {
     this.addressSelector = loadRemoteModule({

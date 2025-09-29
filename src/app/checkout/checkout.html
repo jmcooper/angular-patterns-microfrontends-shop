@@ -10,12 +10,12 @@
     <h2>Order Summary</h2>
     <!-- Example order summary, replace with real data as needed -->
     <ul>
-      <li>Large Cyclops Head - $976.40</li>
-      <li>Spring Base - $1190.50</li>
-      <li>Articulated Arm - $275.00</li>
+      @for(product of cartService.cart(); track product.id) {
+      <li>{{product.name}} - {{ product.price * (1 - product.discount) | currency }}</li>
+      }
     </ul>
     <div class="total">
-      <strong>Total:</strong> $119.97
+      <strong>Total:</strong> {{cartService.total() | currency}}
     </div>
   </section>
 
